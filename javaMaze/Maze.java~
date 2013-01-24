@@ -1,0 +1,75 @@
+import java.util.Stack;
+import java.util.Random;
+
+public class Maze{
+	private int[][] grid;
+	private int sizex;
+	private int sizey;
+	
+	final int NORTH = 0;
+	final int SOUTH = 1;
+	final int EAST = 2;
+	final int WEST = 3;
+	
+	private Stack movesX = new Stack();
+	private Stack movesY = new Stack();
+	
+	public void init(){
+		for (int i = 0; i < sizex; i++){
+			for (int j = 0; j < sizey; j++){
+				grid[i][j] = 1;
+			}
+		}
+	}
+	
+	public void printGrid(){
+		for (int i = 0; i < sizex; i++){
+                        for (int j = 0; j < sizey; j++){
+                                System.out.print(grid[i][j]);
+                        }
+			System.out.print("\n");
+                }
+	}
+	
+	public boolean good(int x, int y, int direction){
+		
+		if (grid[y][x] == 1 || x >= (sizex - 1) || x <= 0 || y <= 0 || y >= (sizey - 1)){
+			return false;
+		}
+		
+		// check cardinal directions
+		if (direction == NORTH){
+			if (grid[y][x-1] != 1 &&  grid[y-1][x] != 1 && grid[y][x+1] != 1 && grid[y-1][x-1] != 1 && grid[y-1][x+1] != 1){
+				return true;
+			}
+		}
+		if (direction == SOUTH){
+			if (grid[y][x-1] != 1 &&  grid[y+1][x] != 1 && grid[y][x+1] != 1 && grid[y+1][x-1] != 1 && grid[y+1][x+1] != 1){
+				return true;
+			}
+		}
+		if (direction == EAST){
+			if (grid[y][x+1] != 1 &&  grid[y-1][x] != 1 && grid[y+1][x] != 1 && grid[y-1][x+1] != 1 && grid[y+1][x+1] != 1){
+				return true;
+			}
+		}
+		if (direction == WEST){
+			if (grid[y][x-1] != 1 &&  grid[y-1][x] != 1 && grid[y+1][x] != 1 && grid[y-1][x-1] != 1 && grid[y+1][x-1] != 1){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public void createMaze(){
+		movesX.push(3);
+		movesY.push(4);
+	}
+	
+	public Maze(int x, int y){
+		grid = new int[x][y];
+		sizex = x;
+		sizey = y;
+		init();
+	}
+}

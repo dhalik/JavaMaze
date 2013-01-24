@@ -1,0 +1,75 @@
+//import java.util.Stack
+import java.util.Random;
+
+public class Maze{
+	private int[][] grid;
+	private int sizex;
+	private int sizey;
+
+	//private Stack movesX = new Stack();
+	//private Stack movesY = new Stack();
+
+	public void init(){
+		for (int i = 0; i < sizex; i++){
+			for (int j = 0; j < sizey; j++){
+				grid[i][j] = 1;
+			}
+		}
+	}
+
+	public void printGrid(){
+		for (int i = 0; i < sizex; i++){
+                        for (int j = 0; j < sizey; j++){
+                                System.out.print(grid[i][j]);
+                        }
+			System.out.print("\n");
+                }
+	}
+
+	public boolean(){
+
+	}
+
+	public createMaze(){
+		Random randomGenerator = new Random();
+			if (grid[y][x-1] != '.' &&  grid[y+1][x] != '.' && grid[y][x+1] != '.' && grid[y+1][x-1] != '.' && grid[y+1$
+                        	return true;
+                	        if (grid[y][x] == '.' || x >= (SIZEX - 1) || x <= 0 || y <= 0 || y >= (SIZEY - 1)){
+                return false;
+        }
+
+        	// check cardinal directions
+        	if (direction == NORTH){
+                	if (grid[y][x-1] != '.' &&  grid[y-1][x] != '.' && grid[y][x+1] != '.' && grid[y-1][x-1] != '.' && grid[y-1$
+                        	return true;
+                	}
+        	}
+        	if (direction == SOUTH){
+                	if (grid[y][x-1] != '.' &&  grid[y+1][x] != '.' && grid[y][x+1] != '.' && grid[y+1][x-1] != '.' && grid[y+1$
+                        	return true;
+                	}
+        		}
+		}
+        }
+        	if (direction == EAST){
+                	if (grid[y][x+1] != '.' &&  grid[y-1][x] != '.' && grid[y+1][x] != '.' && grid[y-1][x+1] != '.' && grid[y+1$
+                        	return true;
+                	}
+        	}
+        	if (direction == WEST){
+                	if (grid[y][x-1] != '.' &&  grid[y-1][x] != '.' && grid[y+1][x] != '.' && grid[y-1][x-1] != '.' && grid[y+1$
+                        	return true;
+                	}
+        	}
+        	return false;
+	}
+
+	}
+
+	public Maze(int x, int y){
+		grid = new int[x][y];
+		sizex = x;
+		sizey = y;
+		init();
+	}
+}
